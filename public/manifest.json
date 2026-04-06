@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Rant2Respect | AI Workplace Diplomacy",
+  "version": "1.0.2",
+  "description": "Transform frustrated workplace messages into clear, professional communication with AI.",
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "logo.png"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://mail.google.com/*", "*://www.linkedin.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["logo.png", "favicon.svg"],
+      "matches": ["*://mail.google.com/*", "*://www.linkedin.com/*"]
+    }
+  ]
+}

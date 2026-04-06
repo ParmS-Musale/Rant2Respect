@@ -1,0 +1,65 @@
+
+/* Rant2Respect Content Script Styles v1.0.2 */
+
+.r2r-inject-button-v2 {
+  position: absolute !important;
+  z-index: 10000 !important;
+  background: linear-gradient(135deg, #C9A84C, #A8891F) !important;
+  color: #0C0C0C !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  border-radius: 14px !important;
+  padding: 12px 20px !important; /* Larger touch area */
+  font-family: 'Inter', sans-serif !important;
+  font-size: 16px !important; /* Larger 'R2R' text */
+  font-weight: 900 !important;
+  cursor: pointer !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.3) !important;
+  right: 25px !important;
+  bottom: 25px !important;
+}
+
+.r2r-inject-button-v2:hover {
+  transform: translateY(-4px) scale(1.08) !important;
+  box-shadow: 0 10px 24px rgba(201, 168, 76, 0.45) !important;
+}
+
+.r2r-logo-img {
+  width: 32px !important; /* BIG logo as requested */
+  height: 32px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+.r2r-btn-text {
+  letter-spacing: 0.1em !important;
+  font-family: 'Manrope', sans-serif !important;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.2) !important;
+}
+
+/* Modal v2 */
+#r2r-modal-container-v2 {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0,0,0,0.92) !important;
+  backdrop-filter: blur(14px) !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.r2r-modal-content {
+  animation: r2r-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes r2r-pop {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}

@@ -1,0 +1,54 @@
+.r2r-inject-button {
+  position: absolute;
+  z-index: 9999;
+  background: linear-gradient(135deg, #C9A84C, #A8891F);
+  color: #0C0C0C;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.r2r-inject-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.r2r-inject-button img {
+  width: 14px;
+  height: 14px;
+}
+
+/* Modal Styling Injection */
+#r2r-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.r2r-modal-content {
+  width: 90%;
+  max-width: 500px;
+  background: #0C0C0C;
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+  font-family: 'Inter', sans-serif;
+}
