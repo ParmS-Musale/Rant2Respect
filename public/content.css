@@ -7,19 +7,16 @@
   background: linear-gradient(135deg, #C9A84C, #A8891F) !important;
   color: #0C0C0C !important;
   border: 1px solid rgba(0,0,0,0.1) !important;
-  border-radius: 14px !important;
-  padding: 12px 20px !important; /* Larger touch area */
-  font-family: 'Inter', sans-serif !important;
-  font-size: 16px !important; /* Larger 'R2R' text */
-  font-weight: 900 !important;
+  border-radius: 10px !important;
+  padding: 6px !important; /* Compact icon-only */
   cursor: pointer !important;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  justify-content: center !important;
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.3) !important;
-  right: 25px !important;
-  bottom: 25px !important;
+  left: 12px !important;
+  bottom: 12px !important;
 }
 
 .r2r-inject-button-v2:hover {
@@ -28,17 +25,12 @@
 }
 
 .r2r-logo-img {
-  width: 32px !important; /* BIG logo as requested */
-  height: 32px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+  width: 24px !important; /* Slightly smaller for compact look */
+  height: 24px !important;
+  border-radius: 6px !important;
 }
 
-.r2r-btn-text {
-  letter-spacing: 0.1em !important;
-  font-family: 'Manrope', sans-serif !important;
-  text-shadow: 0 1px 1px rgba(255,255,255,0.2) !important;
-}
+
 
 /* Modal v2 */
 #r2r-modal-container-v2 {
