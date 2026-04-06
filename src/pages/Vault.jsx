@@ -1,86 +1,224 @@
-import React from 'react';
-import { History, Search, ArrowRight, Shield, Zap, Copy, ExternalLink, Calendar } from 'lucide-react';
+import React, { useState } from 'react';
+import { Copy, Calendar, Zap, Trash2, Search } from 'lucide-react';
 
-const Vault = () => {
-    const history = [
-        { id: 1, original: "What were you even thinking? This is garbage.", respect: "I'd like to propose a strategic refinement to better align with our core objectives.", tone: "Executive", date: "Today, 2:00 PM" },
-        { id: 2, original: "I'm not doing this, it's not my job.", respect: "I believe there's an opportunity to improve the approach for better project outcomes.", tone: "Formal", date: "Yesterday, 10:30 AM" },
-        { id: 3, original: "Stop talking and let me finish.", respect: "Thank you for that perspective. Could we perhaps refocus on the primary requirements first?", tone: "Direct", date: "Monday, 4:15 PM" },
-    ];
+const HISTORY = [
+  {
+    id: 1,
+    rant: "What were you even thinking? This is garbage.",
+    result: "I'd like to propose a strategic refinement to better align with our core objectives.",
+    tone: "Executive",
+    date: "Today, 2:00 PM",
+  },
+  {
+    id: 2,
+    rant: "I'm not doing this, it's not my job.",
+    result: "I believe this task may fall outside my current scope. Could we clarify ownership before proceeding?",
+    tone: "Formal",
+    date: "Yesterday, 10:30 AM",
+  },
+  {
+    id: 3,
+    rant: "Stop talking and let me finish.",
+    result: "Thank you — could we perhaps allow each person to complete their thought before responding? It'll help us move faster.",
+    tone: "Direct",
+    date: "Mon, 4:15 PM",
+  },
+];
 
-    return (
-        <div className="min-h-screen bg-[#0f172a] text-white pt-32 pb-24 px-6 font-['Inter'] relative overflow-hidden">
-            <div className="max-w-7xl mx-auto space-y-12">
-                <div className="flex flex-col md:flex-row items-end justify-between gap-8 border-b border-white/5 pb-12">
-                    <div className="space-y-4">
-                        <div className="inline-block px-4 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-                            <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest font-mono italic underline font-bold">Encrypted Archive</span>
-                        </div>
-                        <h2 className="text-5xl font-extrabold font-['Manrope'] tracking-tight">
-                            Conversion <span className="text-slate-500">Vault</span>
-                        </h2>
-                        <p className="text-slate-400 max-w-md">Your history of professional transformations, archived with end-to-end privacy.</p>
-                    </div>
-                    <div className="flex items-center bg-slate-900/40 p-4 rounded-2xl border border-slate-800 w-full md:w-96 backdrop-blur-xl group focus-within:border-blue-500/50 transition-all">
-                        <Search className="w-5 h-5 text-slate-600 mr-3 group-focus-within:text-blue-500 transition-colors" />
-                        <input type="text" placeholder="Search archive..." className="bg-transparent text-sm text-white focus:outline-none w-full placeholder:text-slate-700" />
-                    </div>
-                </div>
+export default function Vault() {
+  const [query, setQuery] = useState('');
+  const [copiedId, setCopiedId] = useState(null);
 
-                <div className="grid gap-8">
-                  {history.map((item) => (
-                    <div key={item.id} className="group relative">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-emerald-600/20 rounded-[2.5rem] blur opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                        <div className="p-10 bg-[#1e293b]/40 rounded-[2.5rem] border border-slate-800/60 backdrop-blur-3xl relative overflow-hidden transition-all duration-500 hover:border-blue-500/30">
-                            <div className="flex flex-col lg:flex-row gap-12">
-                                <div className="lg:w-1/2 space-y-4">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-red-400"></div>
-                                        <label className="text-[10px] font-bold text-slate-500 font-mono tracking-widest uppercase italic">The Rant</label>
-                                    </div>
-                                    <p className="text-slate-400 italic text-lg leading-relaxed">"{item.original}"</p>
-                                </div>
-                                <div className="flex items-center justify-center lg:w-16">
-                                    <div className="w-12 h-12 bg-blue-600/10 rounded-full flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
-                                        <ArrowRight className="w-6 h-6" />
-                                    </div>
-                                </div>
-                                <div className="lg:w-1/2 space-y-4">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
-                                        <label className="text-[10px] font-bold text-emerald-500 font-mono tracking-widest uppercase italic">The Respect</label>
-                                    </div>
-                                    <p className="text-white font-medium text-lg leading-relaxed tracking-tight underline-offset-4">{item.respect}</p>
-                                </div>
-                            </div>
-                            
-                            <div className="mt-10 pt-8 border-t border-white/5 flex flex-wrap items-center justify-between gap-6">
-                                <div className="flex items-center gap-8">
-                                    <div className="flex items-center gap-2">
-                                        <Zap className="w-4 h-4 text-blue-500" />
-                                        <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest font-mono">{item.tone} Tone</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <Calendar className="w-4 h-4 text-slate-600" />
-                                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest font-mono">{item.date}</span>
-                                    </div>
-                                </div>
-                                <div className="flex gap-4">
-                                    <button className="p-3 bg-slate-900/40 rounded-xl text-slate-500 hover:text-white border border-transparent hover:border-slate-700 transition-all">
-                                        <Copy className="w-5 h-5" />
-                                    </button>
-                                    <button className="p-3 bg-slate-900/40 rounded-xl text-slate-500 hover:text-white border border-transparent hover:border-slate-700 transition-all">
-                                        <ExternalLink className="w-5 h-5" />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  ))}
-                </div>
-            </div>
+  const filtered = HISTORY.filter(
+    h =>
+      h.rant.toLowerCase().includes(query.toLowerCase()) ||
+      h.result.toLowerCase().includes(query.toLowerCase()) ||
+      h.tone.toLowerCase().includes(query.toLowerCase())
+  );
+
+  const copy = (text, id) => {
+    navigator.clipboard.writeText(text);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  return (
+    <main style={{
+      backgroundColor: '#0C0C0C',
+      minHeight: '100vh',
+      color: '#E8E4DC',
+      fontFamily: "'Inter', sans-serif",
+      paddingTop: '80px',
+    }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 24px' }}>
+
+        {/* Header */}
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '16px',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          marginBottom: '32px',
+          paddingBottom: '32px',
+          borderBottom: '1px solid rgba(255,255,255,0.04)',
+        }}>
+          <div>
+            <p style={{ fontSize: '0.72rem', fontWeight: 700, color: '#C9A84C', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>
+              Archive
+            </p>
+            <h1 style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 'clamp(1.5rem, 4vw, 2rem)',
+              fontWeight: 800,
+              letterSpacing: '-0.03em',
+              color: '#F5F0E8',
+              lineHeight: 1.1,
+            }}>
+              Conversion Vault
+            </h1>
+            <p style={{ fontSize: '0.875rem', color: '#5A5248', marginTop: '6px' }}>
+              {HISTORY.length} saved transformations
+            </p>
+          </div>
+
+          {/* Search */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            backgroundColor: '#111111',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: '10px',
+            padding: '10px 16px',
+            width: '100%',
+            maxWidth: '280px',
+          }}>
+            <Search size={15} color='#3A3430' />
+            <input
+              type="text"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              placeholder="Search archive..."
+              style={{
+                background: 'transparent',
+                border: 'none',
+                outline: 'none',
+                color: '#E8E4DC',
+                fontSize: '0.875rem',
+                width: '100%',
+                fontFamily: "'Inter', sans-serif",
+              }}
+            />
+          </div>
         </div>
-    );
-};
 
-export default Vault;
+        {/* History Items */}
+        {filtered.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: '60px 0', color: '#3A3430' }}>
+            No results found for "{query}".
+          </div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {filtered.map(item => (
+              <div
+                key={item.id}
+                style={{
+                  backgroundColor: '#111111',
+                  border: '1px solid rgba(255,255,255,0.05)',
+                  borderRadius: '14px',
+                  overflow: 'hidden',
+                  transition: 'border-color 0.2s',
+                }}
+              >
+                {/* Top row */}
+                <div style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '0',
+                }}>
+                  {/* Before */}
+                  <div style={{
+                    flex: '1 1 280px',
+                    padding: '20px 22px',
+                    borderBottom: '1px solid rgba(255,255,255,0.04)',
+                  }}>
+                    <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#5A5248', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '10px' }}>
+                      Original
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: '#7A7068', lineHeight: 1.6, fontStyle: 'italic' }}>
+                      "{item.rant}"
+                    </p>
+                  </div>
+
+                  {/* After */}
+                  <div style={{
+                    flex: '1 1 280px',
+                    padding: '20px 22px',
+                    backgroundColor: 'rgba(201,168,76,0.02)',
+                    borderLeft: '1px solid rgba(201,168,76,0.08)',
+                    borderBottom: '1px solid rgba(255,255,255,0.04)',
+                  }}>
+                    <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#8B7A3A', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '10px' }}>
+                      Transformed
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: '#E8E4DC', lineHeight: 1.6 }}>
+                      {item.result}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bottom meta bar */}
+                <div style={{
+                  padding: '12px 20px',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '8px',
+                  backgroundColor: '#0E0E0E',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <span style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '5px',
+                      fontSize: '0.72rem', fontWeight: 700, color: '#C9A84C',
+                      backgroundColor: 'rgba(201,168,76,0.07)',
+                      border: '1px solid rgba(201,168,76,0.18)',
+                      padding: '4px 10px', borderRadius: '6px',
+                    }}>
+                      <Zap size={10} fill='#C9A84C' />
+                      {item.tone}
+                    </span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '0.72rem', color: '#3A3430' }}>
+                      <Calendar size={12} />
+                      {item.date}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => copy(item.result, item.id)}
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '6px',
+                      padding: '6px 14px',
+                      backgroundColor: 'transparent',
+                      border: '1px solid rgba(255,255,255,0.06)',
+                      borderRadius: '7px',
+                      color: copiedId === item.id ? '#8BCA8B' : '#5A5248',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      transition: 'color 0.15s, border-color 0.15s',
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                  >
+                    <Copy size={13} />
+                    {copiedId === item.id ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </main>
+  );
+}
