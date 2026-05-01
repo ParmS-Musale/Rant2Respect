@@ -4,7 +4,7 @@
 
 ### *From Rant to Respect — AI-Powered Workplace Communication*
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-rant2respect-C9A84C?style=for-the-badge&labelColor=0C0C0C)](https://rant2-respect21.vercel.app)
+[![Live Demo](https://img.shields.io/badge/_Live_Demo-rant2respect-C9A84C?style=for-the-badge&labelColor=0C0C0C)](https://rant2-respect21.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github&labelColor=0C0C0C)](https://github.com/ParmS-Musale/Rant2Respect)
 [![Chrome Extension](https://img.shields.io/badge/Chrome-Extension_v1.0.2-4285F4?style=for-the-badge&logo=googlechrome&labelColor=0C0C0C)](https://github.com/ParmS-Musale/Rant2Respect)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge&labelColor=0C0C0C)](LICENSE)
@@ -17,7 +17,7 @@
 
 <br/>
 
-[🚀 Try Live Demo](https://rant2-respect21.vercel.app) · [📦 Install Extension](#-chrome-extension) · [🛠️ Run Locally](#-getting-started) · [📖 Documentation](#-how-it-works)
+[🚀 Try Live Demo](https://rant2-respect21.vercel.app) · [ Install Extension](#-chrome-extension) · [🛠️ Run Locally](#-getting-started) · [ Documentation](#-how-it-works)
 
 </div>
 
