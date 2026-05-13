@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ Rant2Respect
+# Rant2Respect
 
 ### *From Rant to Respect — AI-Powered Workplace Communication*
 
